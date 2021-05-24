@@ -37,7 +37,7 @@ out_topic = app.topic(out_topic_name, partitions=3)
 table = app.Table(
    name = out_topic_name,
    default=TransformedStation,
-   partitions=3,
+   partitions=1,
    changelog_topic=out_topic,
 )
 
