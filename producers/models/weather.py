@@ -31,11 +31,11 @@ class Weather(Producer):
 
     def __init__(self, month):
         super().__init__(
-            "org.chicago.transit.authority.weather.v1",
+            "org.chicago.cta.weather.v1",
             key_schema=Weather.key_schema,
             value_schema=Weather.value_schema,
             num_partitions=3,
-            num_replicas=3,
+            num_replicas=1,
         )
 
         self.status = Weather.status.sunny

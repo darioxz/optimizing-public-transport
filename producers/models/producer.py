@@ -21,7 +21,7 @@ class Producer:
         topic_name,
         key_schema,
         value_schema=None,
-        num_partitions=1,
+        num_partitions=3,
         num_replicas=1,
     ):
         """Initializes a Producer object with basic settings"""
@@ -49,8 +49,7 @@ class Producer:
 
     def create_topic(self):
         """Creates the producer topic if it does not already exist"""
-        client = AdminClient(self.broker_properties)
-
+        client = AdminClient({"bootstrap.servers": "PLAINTEXT://localhost:9092"})
         fs = client.create_topics(
             [
                 NewTopic(
@@ -78,8 +77,7 @@ class Producer:
 
     def close(self):
         """Prepares the producer for exit by cleaning up the producer"""
-        self.producer.close()
-        super(Producer, self).close()
+        self.producer.flush()
 
     def time_millis(self):
         """Use this function to get the key for Kafka Events"""
