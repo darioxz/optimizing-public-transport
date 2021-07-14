@@ -45,7 +45,6 @@ def configure_connector():
                 "incrementing.column.name": "stop_id",
                 "topic.prefix": "org.chicago.cta.",
                 "poll.interval.ms": "6000",
-                "partitions": "3",
             }
         }),
     )

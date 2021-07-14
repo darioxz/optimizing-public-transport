@@ -21,7 +21,7 @@ class Producer:
         topic_name,
         key_schema,
         value_schema=None,
-        num_partitions=3,
+        num_partitions=1,
         num_replicas=1,
     ):
         """Initializes a Producer object with basic settings"""
